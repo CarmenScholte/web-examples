@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Examples</title>
+
+    <link rel="stylesheet" href="./reset.css" />
+    <style>
+      .grid {
+        padding-top: 5rem;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        background-color: rgba(246, 248, 250, 1);
+        min-height: 100vh;
+        box-sizing: border-box;
+      }
+      .example {
+        padding: 2rem;
+        height: 300px;
+      }
+      .example--relative {
+        position: relative;
+      }
+      .mini-page {
+        border: 1px solid lightgray;
+        height: 100%;
+        overflow-y: scroll;
+        background-color: white;
+      }
+      .mini-page__body {
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+      }
+      .mini-page__body--relative {
+        position: relative;
+      }
+      .header-wrapper {
+        position: relative;
+        height: 64px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05),
+          0px -3px 3px rgba(0, 0, 0, 0.05);
+      }
+      .header--fixed {
+        position: fixed;
+        width: 100%;
+        top: 0;
+      }
+      .header--sticky {
+        position: sticky;
+        top: 0;
+      }
+      .header--absolute {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        right: 2rem;
+      }
+      .header__item {
+        padding: 1rem;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div class="header header--fixed">
+          <div class="header__item">Fixed Header</div>
+          <p>Is fixed to the viewport. Takes no space in page flow.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="example">
+          <div class="mini-page">
+            <div class="mini-page__body">
+              <div class="header">
+                <div class="header__item">Home</div>
+                <div class="header__item">Pricing</div>
+                <div class="header__item">About</div>
+                <div class="header__item">Contact</div>
+              </div>
+
+              <div class="content">
+                <h1>Normal static header</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="mini-page">
+            <div class="mini-page__body">
+              <div class="content">
+                <h1>Content</h1>
+              </div>
+
+              <div class="header header--sticky">
+                <div class="header__item">Home</div>
+                <div class="header__item">Pricing</div>
+                <div class="header__item">About</div>
+                <div class="header__item">Contact</div>
+              </div>
+
+              <div class="content">
+                <h1>Sticky header</h1>
+                <br />
+                <p>
+                  Is positioned relative untill scrolled to sticky position.
+                  Still takes space in page flow. No wrapper needed, only top
+                  and/or left position.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
